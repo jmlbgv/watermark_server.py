@@ -26,7 +26,9 @@ def add_watermark():
     txt = Image.new('RGBA', image.size, (255, 255, 255, 0))
     draw = ImageDraw.Draw(txt)
 
-    text_width, text_height = draw.textsize(watermark_text, font)
+    bbox = draw.textbbox((0, 0), watermark_text, font=font)
+    text_width = bbox[2] - bbox[0]
+    text_height = bbox[3] - bbox[1]
     x_spacing = text_width + 50
     y_spacing = text_height + 50
 
