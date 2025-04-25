@@ -43,4 +43,4 @@ def add_watermark():
     return send_file(img_byte_arr, mimetype='image/png')
 
 if __name__ == '__main__':
-    app.run(port=5001)
+    app = Flask(__name__)
